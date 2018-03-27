@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+
 
 def native_relu(x):
     assert(len(x.shape) == 2)
