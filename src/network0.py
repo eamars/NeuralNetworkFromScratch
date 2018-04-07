@@ -99,11 +99,9 @@ class Network(object):
         for layer in range(2, self.num_layers):
             z = zs[-layer]
             sp = sigmoid_prime(z)
-            weight = self.weights[-layer + 1].transpose()
-            delta = np.dot(weight, delta) * sp
+            delta = np.dot(self.weights[-layer + 1].transpose(), delta) * sp
             nabla_b[-layer] = delta
-            act = activations[-layer - 1].transpose()
-            nabla_w[-layer] = np.dot(delta, act)
+            nabla_w[-layer] = np.dot(delta, activations[-layer - 1].transpose())
 
         return nabla_b, nabla_w
 
